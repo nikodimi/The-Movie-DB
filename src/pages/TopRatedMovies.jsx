@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Loading from '../components/Loading'
 import { useQuery } from 'react-query'
 import { getTopRatedMovies} from '../services/tmdbAPI'
 
@@ -12,7 +13,7 @@ const TopRatedMovies = () => {
         <Container className="py-3">
             <h1 className="mb-3">Top rated Movies!</h1>
 
-            {isLoading && (<p>Loading</p>)}
+            {isLoading &&  <Loading />}
 
             {isError && (<p>An error occurred!</p>)}
 
