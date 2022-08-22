@@ -9,7 +9,7 @@ import { getPopularMovies } from '../services/tmdbAPI'
 
 
 const PopularMovies = () => {
-    const { data: movies, isError, isLoading, isSuccess } = useQuery('movies', getPopularMovies)
+    const { data: movies, error, isError, isLoading, isSuccess } = useQuery('movies', getPopularMovies)
 
 	return (
         <Container className="py-3">

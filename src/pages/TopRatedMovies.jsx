@@ -9,7 +9,7 @@ import { getTopRatedMovies} from '../services/tmdbAPI'
 
 
 const TopRatedMovies = () => {
-    const { data: movies, isError, isLoading, isSuccess } = useQuery('movies', getTopRatedMovies)
+    const { data: movies, error, isError, isLoading, isSuccess } = useQuery('movies', getTopRatedMovies)
 
 	return (
         <Container className="py-3">
