@@ -22,6 +22,15 @@ const API_KEY = import.meta.env.VITE_API_KEY
     return get(`/movie/top_rated?api_key=${API_KEY}`)
 }
 
+/**
+ * Get popular Movies
+ */
+
+export const getPopularMovies = async () => {
+    return get(`/movie/popular?api_key=${API_KEY}`)
+}
+
 export default {
-    getTopRatedMovies
+    getTopRatedMovies,
+    getPopularMovies
 }

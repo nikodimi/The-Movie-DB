@@ -1,10 +1,38 @@
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Loading from '../components/Loading'
+import WarningAlert from '../components/alerts/WarningAlert'
+import MovieCard from '../components/MovieCard'
+import { useQuery } from 'react-query'
+import { getPopularMovies } from '../services/tmdbAPI'
+
 
 const PopularMovies = () => {
+    const { data: movies, isError, isLoading, isSuccess } = useQuery('movies', getPopularMovies)
+
 	return (
-		<Container className="py-3">
-			<h1>Popular movies!</h1>
-		</Container>
+        <Container className="py-3">
+            <h1 className="mb-3">Top rated Movies!</h1>
+
+            {isLoading &&  <Loading />}
+
+            {isError && <WarningAlert message={error.message} />}
+
+            <div>
+                {isSuccess && (
+                    <>
+                        <Row>
+                            {movies.results.map((movie) => (
+                                <Col lg={3} md={4} sm={12} key={movie.id}>
+                                    <MovieCard movie={movie} />
+                                </Col>
+                            ))}
+                        </Row>
+                    </>
+                )}
+            </div>
+        </Container>
 	)
 }
 
