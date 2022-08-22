@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Loading from '../components/Loading'
+import WarningAlert from '../components/alerts/WarningAlert'
 import { useQuery } from 'react-query'
 import { getTopRatedMovies} from '../services/tmdbAPI'
 
@@ -15,7 +16,7 @@ const TopRatedMovies = () => {
 
             {isLoading &&  <Loading />}
 
-            {isError && (<p>An error occurred!</p>)}
+            {isError && <WarningAlert message={error.message} />}
 
             <div>
                 {isSuccess && (
