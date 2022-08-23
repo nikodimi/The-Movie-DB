@@ -40,5 +40,6 @@ export const getNowPlayingMovies = async () => {
 
 export default {
     getTopRatedMovies,
-    getPopularMovies
+    getPopularMovies,
+    getNowPlayingMovies
 }
