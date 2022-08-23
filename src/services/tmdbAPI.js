@@ -30,6 +30,14 @@ export const getPopularMovies = async () => {
     return get(`/movie/popular?api_key=${API_KEY}`)
 }
 
+/**
+ * Get now-playing Movies
+ */
+
+export const getNowPlayingMovies = async () => {
+    return get(`/movie/now_playing?api_key=${API_KEY}`)
+}
+
 export default {
     getTopRatedMovies,
     getPopularMovies
