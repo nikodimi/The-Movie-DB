@@ -44,7 +44,7 @@ export const getNowPlayingMovies = async () => {
 
 export const getMovie = async ({ queryKey }) => {
     const [_key, { id }] = queryKey
-    return get(`/movie/${id}?api_key=${API_KEY}`)
+    return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
 export default {
