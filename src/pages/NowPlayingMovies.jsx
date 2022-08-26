@@ -1,15 +1,19 @@
+import { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
+import Pagination from '../components/pagination'
 import { useQuery } from 'react-query'
 import { getNowPlayingMovies } from '../services/tmdbAPI'
 
 
 const NowPlayingMovies = () => {
-	const { data: movies, error, isError, isLoading, isSuccess } = useQuery('now-playing-movies', getNowPlayingMovies)
+    const [page, setPage] = useState(1)
+	const { data: movies, error, isError, isLoading, isSuccess } = useQuery(['now-playing-movies', { page }], getNowPlayingMovies)
+    console.log(movies)
 
 	return (
         <Container className="py-3">
@@ -18,20 +22,28 @@ const NowPlayingMovies = () => {
             {isLoading &&  <Loading />}
 
             {isError && <WarningAlert message={error.message} />}
+        
+            {isSuccess && (
+                <>
+                    <Row>
+                        {movies.results.map((movie) => (    
+                            <Col lg={3} md={4} sm={12} key={movie.id}>
+                                <MovieCard movie={movie} />
+                            </Col>
+                        ))}
+                    </Row>
+                    
+                    <Pagination
+                        page={page}
+                        numberOfPages={movies.total_pages}
+                        hasPreviousPage={movies.page > 1}
+                        hasNextPage={movies.page < 65}
+                        onPreviousPage={() => setPage(currentPage => currentPage - 1)}
+                        onNextPage={() => setPage(currentPage => currentPage + 1)}
+                    />
+                </>
+            )}
 
-            <div>
-                {isSuccess && (
-                    <>
-                        <Row>
-                            {movies.results.map((movie) => (
-                                <Col lg={3} md={4} sm={12} key={movie.id}>
-                                    <MovieCard movie={movie} />
-                                </Col>
-                            ))}
-                        </Row>
-                    </>
-                )}
-            </div>
         </Container>
 	)
 }
