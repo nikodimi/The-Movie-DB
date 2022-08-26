@@ -53,7 +53,7 @@ export const getMovie = async ({ queryKey }) => {
 
  export const getActor = async ({ queryKey }) => {
     const [_key, { id }] = queryKey
-    return get(`/person/${id}?api_key=${API_KEY}`)
+    return get(`/person/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
 export default {
