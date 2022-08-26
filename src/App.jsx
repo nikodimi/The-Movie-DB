@@ -7,6 +7,7 @@ import NowPlayingMovies from './pages/NowPlayingMovies'
 import PopularMovies from './pages/PopularMovies'
 import TopRatedMovies from './pages/TopRatedMovies'
 import MoviePage from './pages/MoviePage'
+import ActorPage from './pages/ActorPage'
 import './assets/scss/App.scss'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/movie/:id" element={<MoviePage />} />
 				<Route path="/now-playing" element={<NowPlayingMovies />} />
+                <Route path="/person/:id" element={<ActorPage />} />
 				<Route path="/popular" element={<PopularMovies />} />
 				<Route path="/top-rated" element={<TopRatedMovies />} />
 				<Route path="*" element={<NotFound />} />

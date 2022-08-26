@@ -47,9 +47,19 @@ export const getMovie = async ({ queryKey }) => {
     return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits`)
 }
 
+/**
+ * Get Actor
+ */
+
+ export const getActor = async ({ queryKey }) => {
+    const [_key, { id }] = queryKey
+    return get(`/person/${id}?api_key=${API_KEY}`)
+}
+
 export default {
     getTopRatedMovies,
     getPopularMovies,
     getNowPlayingMovies,
-    getMovie
+    getMovie,
+    getActor
 }

@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const MovieDetails = ({ movie }) => {
     const base_url = 'https://image.tmdb.org/t/p/w500'
@@ -38,11 +38,13 @@ const MovieDetails = ({ movie }) => {
 
             <Row>
 			    {movie.credits.cast.map((person, i) => (
-                    <Col lg={2} sm={12} key={i}>
-                        <Card className="mb-3">
-                            {/* <Card.Img variant="top" src={base_url + person.profile_path}/> */}
+                    <Col lg={2} md={3} sm={4} xs={8} key={i}>
+                        <Card className="mb-3 cardss">
+                            <Card.Img variant="top" src={base_url + person.profile_path}/>
                             <Card.Body>
-                                <Card.Title >{person.name}</Card.Title>
+                                <Card.Title as={Link} to={`/person/${person.id}`}
+                                >
+                                    {person.name}</Card.Title>
                                 <Card.Text>{person.character}</Card.Text>
                             </Card.Body>
                         </Card>
