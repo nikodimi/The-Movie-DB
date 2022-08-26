@@ -1,3 +1,4 @@
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
@@ -21,6 +22,8 @@ function App() {
 				<Route path="/top-rated" element={<TopRatedMovies />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+
+            <ReactQueryDevtools />
 		</div>
 	)
 }
