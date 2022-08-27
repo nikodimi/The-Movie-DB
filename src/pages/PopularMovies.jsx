@@ -4,12 +4,11 @@ import Col from 'react-bootstrap/Col'
 import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
-import { useQuery } from 'react-query'
-import { getPopularMovies } from '../services/tmdbAPI'
+import usePopularMovies from '../hooks/usePopularMovies'
 
 
 const PopularMovies = () => {
-    const { data: movies, error, isError, isLoading, isSuccess } = useQuery('popular-movies', getPopularMovies)
+    const { data: movies, error, isError, isLoading, isSuccess } = usePopularMovies()
 
 	return (
         <Container className="py-3">

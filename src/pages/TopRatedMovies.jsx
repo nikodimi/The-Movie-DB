@@ -4,12 +4,11 @@ import Col from 'react-bootstrap/Col'
 import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
-import { useQuery } from 'react-query'
-import { getTopRatedMovies} from '../services/tmdbAPI'
+import useTopRatedMovies from '../hooks/useTopRatedMovies'
 
 
 const TopRatedMovies = () => {
-    const { data: movies, error, isError, isLoading, isSuccess } = useQuery('top-rated-movies', getTopRatedMovies)
+    const { data: movies, error, isError, isLoading, isSuccess } = useTopRatedMovies()
 
 	return (
         <Container className="py-3">

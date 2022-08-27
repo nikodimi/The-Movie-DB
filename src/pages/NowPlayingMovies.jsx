@@ -6,13 +6,12 @@ import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
 import Pagination from '../components/pagination'
-import { useQuery } from 'react-query'
-import { getNowPlayingMovies } from '../services/tmdbAPI'
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 
 
 const NowPlayingMovies = () => {
     const [page, setPage] = useState(1)
-	const { data: movies, error, isError, isLoading, isSuccess } = useQuery(['now-playing-movies', { page }], getNowPlayingMovies)
+	const { data: movies, error, isError, isLoading, isSuccess } = useNowPlayingMovies(page)
     console.log(movies)
 
 	return (

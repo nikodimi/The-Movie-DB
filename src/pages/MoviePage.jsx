@@ -2,13 +2,12 @@ import Container from 'react-bootstrap/Container'
 import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieDetails from '../components/MovieDetails'
-import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
-import { getMovie } from '../services/tmdbAPI'
+import useMovie from '../hooks/useMovie'
 
 const MoviePage = () => {
     const { id } = useParams()
-    const { data: movie, error, isError, isLoading, isSuccess } = useQuery(['movie', { id }], getMovie)
+    const { data: movie, error, isError, isLoading, isSuccess } = useMovie(id)
     console.log(movie)
     
     return (
