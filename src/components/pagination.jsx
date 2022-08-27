@@ -2,20 +2,23 @@ import Button from 'react-bootstrap/Button'
 
 const Pagination = ({ page, numberOfPages, hasPreviousPage, onPreviousPage, hasNextPage, onNextPage }) => {
 	return (
-		<div className="pagination d-flex justify-content-center align-items-center mt-3">
+        
+		<div className="pagination d-flex justify-content-center align-items-center mb-3">
             <Button
                 disabled={!hasPreviousPage}
                 onClick={onPreviousPage}
-                variant="primary"
-            >Previous Page</Button>
+                className="prev-btn p-3"
+            >{'<<'}</Button>
 
-			<div className="current-page">Page {page}/{numberOfPages}</div>
+			<div className="current-page p-3"> 
+                <p className='mb-0'>{page}/{numberOfPages}</p>
+            </div>
 
             <Button
                 disabled={!hasNextPage}
                 onClick={onNextPage}
-                variant="primary"
-            >Next Page</Button>
+                className="next-btn p-3"
+            >{'>>'}</Button>
 		</div>
 	)
 }

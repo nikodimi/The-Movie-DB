@@ -13,7 +13,7 @@ const PopularMovies = () => {
 
 	return (
         <Container className="py-3">
-            <h1 className="mb-3">Top rated Movies!</h1>
+            <h2 className="mb-3 page-header py-3">Popular</h2>
 
             {isLoading &&  <Loading />}
 
@@ -24,7 +24,7 @@ const PopularMovies = () => {
                     <>
                         <Row>
                             {movies.results.map((movie) => (
-                                <Col lg={3} md={4} sm={12} key={movie.id}>
+                                <Col lg={3} md={3} sm={4} xs={10}key={movie.id}>
                                     <MovieCard movie={movie} />
                                 </Col>
                             ))}

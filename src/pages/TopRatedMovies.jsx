@@ -13,7 +13,7 @@ const TopRatedMovies = () => {
 
 	return (
         <Container className="py-3">
-            <h1 className="mb-3">Top rated Movies!</h1>
+            <h2 className="mb-3 page-header py-3">Top Rated Movies</h2>
 
             {isLoading &&  <Loading />}
 

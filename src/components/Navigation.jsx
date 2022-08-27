@@ -5,9 +5,9 @@ import { Link, NavLink } from 'react-router-dom'
 
 const Navigation = () => {
 	return (
-		<Navbar bg="dark" variant="dark" expand="md">
+		<Navbar expand="md">
 			<Container>
-				<Navbar.Brand as={Link} to="/">React Template</Navbar.Brand>
+				<Navbar.Brand className="logo" as={Link} to="/">TMDB</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
