@@ -8,6 +8,8 @@ import PopularMovies from './pages/PopularMovies'
 import TopRatedMovies from './pages/TopRatedMovies'
 import MoviePage from './pages/MoviePage'
 import ActorPage from './pages/ActorPage'
+import GenrePage from './pages/GenrePage'
+import Footer from './components/Footer'
 import './assets/scss/App.scss'
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/genre" element={<GenrePage />} />
 				<Route path="/movie/:id" element={<MoviePage />} />
 				<Route path="/now-playing" element={<NowPlayingMovies />} />
                 <Route path="/person/:id" element={<ActorPage />} />
@@ -24,6 +27,8 @@ function App() {
 				<Route path="/top-rated" element={<TopRatedMovies />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+
+            <Footer/>
 
             <ReactQueryDevtools />
 		</div>
