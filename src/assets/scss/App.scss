@@ -227,16 +227,26 @@ hr {
     .carousel-control-prev-icon {
         position: absolute;
         left: -15px;
+        top: 420px;
         background-color: black;
         border-radius: 50%;
         border: 2px solid #DBD88E;
+
+        @media (min-width: 768px) {
+            top: 180px;
+        }    
     }
     .carousel-control-next-icon {
         position: absolute;
         right: 0;
+        top: 420px;
         background-color: black;
         border-radius: 50%;
         border: 2px solid #DBD88E;
+
+        @media (min-width: 768px) {
+            top: 180px;
+        }    
     }
 }
 
