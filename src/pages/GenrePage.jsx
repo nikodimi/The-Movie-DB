@@ -63,7 +63,7 @@ const GenrePage = () => {
                     <>
                         <Row>
                             {genre?.results.map((movie) => (
-                                <Col lg={3} md={3} sm={4} xs={10}key={movie.id}>
+                                <Col lg={3} md={3} sm={4} xs={12}key={movie.id}>
                                     <MovieCard movie={movie} genre_id={genre_id} pa/>
                                 </Col>
                             ))}

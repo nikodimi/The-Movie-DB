@@ -90,7 +90,7 @@ hr {
 
     .navbar-toggler {
         border: 1px solid #DBD88E;
-        padding: 1px 2px;
+        padding: 0;
         background-color:#1b1b18;
     }
 }
@@ -102,15 +102,15 @@ hr {
 
     .hero-image {
         background-image: linear-gradient(to left, rgba(245, 246, 252, 0.2), rgba(184, 181, 99, 0.2)), url("/src/assets/images/projector.png");
-        height: 400px;
+        height: 450px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
 
-        // @media (min-width: 768px) {
-        //     min-height:544px;
-        // }
+        @media (min-width: 768px) {
+           height:400px;
+        }
 
         .hero-text {
             padding: 5px 80px;
@@ -200,6 +200,14 @@ hr {
 
 //CAROUSEL
 
+.title-link {
+    color: #DBD88E;
+}
+
+.title-link:hover {
+    color: white;
+}
+
 .carousel-indicators {
     display: none;
 }
@@ -208,6 +216,13 @@ hr {
 .carousel-control-next
 {
     opacity: 1;
+    min-height: 1128px;
+
+
+    @media (min-width: 768px) {
+        min-height: 370px;
+        text-align: start;
+    }    
 
     .carousel-control-prev-icon {
         position: absolute;

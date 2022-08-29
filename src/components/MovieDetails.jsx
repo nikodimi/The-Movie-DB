@@ -32,8 +32,8 @@ const MovieDetails = ({ movie }) => {
                         <div>
                             <h5>Genre</h5>
                             <div className='d-flex'>
-                                {movie.genres.map((genre, i) => (
-                                    <p className='movie-genres' key={i}>{genre.name}</p>
+                                {movie.genres.map((genre) => (
+                                    <p className='movie-genres' key={genre.id}>{genre.name}</p>
                                 ))}
                             </div>
                         </div>
@@ -51,8 +51,8 @@ const MovieDetails = ({ movie }) => {
                 
                 <h3 className='cast-header pb-2'>Cast</h3>
 
-			    {movie.credits.cast.map((person, i) => (
-                    <Col lg={2} md={3} sm={4} xs={6} key={i}>
+			    {movie.credits.cast.map((person) => (
+                    <Col lg={2} md={3} sm={4} xs={6} key={person.id}>
                         <Card className="mb-5 cast-card">
                             <Card.Img variant="top cast-image" src={person?.profile_path ? base_url + person.profile_path : avatar}/>
                             <Card.Body>
