@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -7,11 +6,14 @@ import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
 import Pagination from '../components/pagination'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import { useSearchParams } from 'react-router-dom'
 
 const NowPlayingMovies = () => {
-    const [page, setPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams({
+        page:1
+    })
+    const page = searchParams.get('page')
 	const { data: movies, error, isError, isLoading, isSuccess } = useNowPlayingMovies(page)
-    console.log(movies)
 
 	return (
         <Container className="py-3">
@@ -36,10 +38,11 @@ const NowPlayingMovies = () => {
                         numberOfPages={movies.total_pages}
                         hasPreviousPage={movies.page > 1}
                         hasNextPage={movies.page < 65}
-                        onPreviousPage={() => setPage(currentPage => currentPage - 1)}
-                        onNextPage={() => setPage(currentPage => currentPage + 1)}
+                        onPreviousPage={() => setSearchParams({page: Number(page) - 1})}
+                        onNextPage={() => setSearchParams({page: Number(page) + 1})}
                     />
                 </>
+                
             )}
 
         </Container>

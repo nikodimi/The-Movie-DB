@@ -4,11 +4,16 @@ import Col from 'react-bootstrap/Col'
 import Loading from '../components/Loading'
 import WarningAlert from '../components/alerts/WarningAlert'
 import MovieCard from '../components/MovieCard'
+import Pagination from '../components/pagination'
 import usePopularMovies from '../hooks/usePopularMovies'
-
+import { useSearchParams } from 'react-router-dom'
 
 const PopularMovies = () => {
-    const { data: movies, error, isError, isLoading, isSuccess } = usePopularMovies()
+    const [searchParams, setSearchParams] = useSearchParams({
+        page:1
+    })
+    const page = searchParams.get('page')
+    const { data: movies, error, isError, isLoading, isSuccess } = usePopularMovies(page)
 
 	return (
         <Container className="py-3">
@@ -18,19 +23,28 @@ const PopularMovies = () => {
 
             {isError && <WarningAlert message={error.message} />}
 
-            <div>
-                {isSuccess && (
-                    <>
-                        <Row>
-                            {movies.results.map((movie) => (
-                                <Col lg={3} md={3} sm={4} xs={10}key={movie.id}>
-                                    <MovieCard movie={movie} />
-                                </Col>
-                            ))}
-                        </Row>
-                    </>
-                )}
-            </div>
+            {isSuccess && (
+                <>
+                    <Row>
+                        {movies.results.map((movie) => (
+                            <Col lg={3} md={3} sm={4} xs={12}key={movie.id}>
+                                <MovieCard movie={movie} />
+                            </Col>
+                        ))}
+                    </Row>
+
+                    <Pagination
+                        page={page}
+                        numberOfPages={movies.total_pages}
+                        hasPreviousPage={movies.page > 1}
+                        hasNextPage={movies.page < 65}
+                        onPreviousPage={() => setSearchParams({page: Number(page) - 1})}
+                        onNextPage={() => setSearchParams({page: Number(page) + 1})}
+                    />
+                </>
+
+            )}
+
         </Container>
 	)
 }

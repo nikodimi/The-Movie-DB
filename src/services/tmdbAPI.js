@@ -19,16 +19,18 @@ const adult = "&include_adult=false"
  * Get top rated Movies
  */
 
- export const getTopRatedMovies = async () => {
-    return get(`/movie/top_rated?api_key=${API_KEY}${adult}`)
+ export const getTopRatedMovies = async ({ queryKey }) => {
+    const [_key,  { page }  ] = queryKey
+    return get(`/movie/top_rated?api_key=${API_KEY}&page=${page}${adult}`)
 }
 
 /**
  * Get popular Movies
  */
 
-export const getPopularMovies = async () => {
-    return get(`/movie/popular?api_key=${API_KEY}${adult}`)
+export const getPopularMovies = async ({ queryKey }) => {
+    const [_key,  { page }  ] = queryKey
+    return get(`/movie/popular?api_key=${API_KEY}&page=${page}${adult}`)
 }
 
 /**
