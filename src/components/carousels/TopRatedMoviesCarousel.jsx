@@ -13,8 +13,6 @@ const TopRatedMoviesCarousel = () => {
     return (
         <Row className='mb-5'>
             <Col sm={12} >
-                        
-                <h2 className="mb-3 page-header">Top rated</h2>
 
                 {isLoading &&  <Loading />}
 
