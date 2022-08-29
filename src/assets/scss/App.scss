@@ -20,6 +20,47 @@ a {
     text-decoration: none;  
 }
 
+h3,
+h4,
+h5
+{
+    color: #DBD88E;
+}
+
+.card {
+    border-width: 2px;
+}
+
+.footer {
+    background-color: rgb(14, 14, 14);
+    padding:10px 0;
+    color: #DBD88E;
+}
+
+.page-header {
+    color: #DBD88E;
+    font-weight: 300;
+}
+
+.btn:disabled,
+.btn:hover,
+.btn:focus 
+{
+    background-color: rgb(27, 27, 27);
+    border-color: #DBD88E;
+}
+
+.btn:active {
+    background-color: rgb(14, 14, 14);
+    border: none;
+}
+
+hr {
+    border-top: 2px solid;
+}
+
+// NAVBAR
+
 .navbar {
     background-color: rgb(14, 14, 14);
 
@@ -41,63 +82,66 @@ a {
     .navbar-nav .nav-link:hover {
         color: white;
     }
+
+    .navbar-toggler {
+        border: 1px solid #DBD88E;
+        padding: 1px 2px;
+        background-color:#1b1b18;
+    }
 }
 
-
-.card {
-    border-width: 2px;
-}
-
-.footer {
-    background-color: rgb(14, 14, 14);
-    padding:10px 0;
-    color: #DBD88E;
-}
+//MOVIECARD 
 
 .movie-card {
+
     background-color: rgb(14, 14, 14);
     border-color: #DBD88E;
-    min-height: 511px;
+    min-height: 619px;
+
+    @media (min-width: 768px) {
+        min-height:544px;
+    }
+
+    @media (min-width: 992px) {
+        min-height:534px;
+    }
+
+    .movie-card-img {
+        min-height: 370px;
+    }
+
+    .movie-card-body {
+        color:#DBD88E;
+        position: relative;
+        
+        .score-circle {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: solid 1px #DBD88E;
+            background-color: rgb(14, 14, 14);
+
+            .score {
+                margin-bottom: 0;
+            }
+        }
+
+        .movie-card-title {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .movie-card-text {
+            color: white;
+        }
+    }
 }
 
-.score-circle {
-    position: absolute;
-    top: -20px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: solid 1px #DBD88E;
-    background-color: rgb(14, 14, 14);
-}
-
-.score {
-    margin-bottom: 0;
-}
-
-.card-body {
-    color:#DBD88E;
-    position: relative;
-}
-
-.card-title {
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-.card-text {
-    color: white;
-}
-
-.page-header {
-    color: #DBD88E;
-    font-weight: 300;
-}
-
-.movie-card-img {
-    min-height: 370px;
-}
-
+//PAGINATION 
+    
 .prev-btn {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -119,64 +163,54 @@ a {
     color: #DBD88E
 }
 
-.btn:disabled,
-.btn:hover,
-.btn:focus 
+//CAROUSEL
+
+.carousel-indicators {
+    display: none;
+}
+
+.carousel-control-prev,
+.carousel-control-next
 {
-    background-color: rgb(27, 27, 27);
-    border-color: #DBD88E;
+    opacity: 1;
+
+    .carousel-control-prev-icon {
+        position: absolute;
+        left: -15px;
+        background-color: black;
+        border-radius: 50%;
+        border: 2px solid #DBD88E;
+    }
+    .carousel-control-next-icon {
+        position: absolute;
+        right: 0;
+        background-color: black;
+        border-radius: 50%;
+        border: 2px solid #DBD88E;
+    }
 }
 
-.btn:active {
-    background-color: rgb(14, 14, 14);
-    border: none;
+//MOVIEDETAILS
+
+.single-movie-img {
+    border: 2px solid #DBD88E;
+    border-radius: 7px;
 }
-
-.cast-card,
-.movie-cards
-{
-    min-height: 365px;
-    background-color: rgb(14, 14, 14);
-    border-color: #DBD88E;
-    overflow: hidden;
-}
-
-.cast-image,
-.movie-images
-{
-    min-height: 233px;
-}
-
-.cast-title,
-.movie-titles
-{
-    font-size: 16px;
-    color:#DBD88E;
-}
-
-.cast-title:hover,
-.movie-titles:hover
-{
-    color:#DBD88E;
-    text-decoration: underline;
-}
-
-.cast-text {
-    font-size: 14px;
-}
-
-
-// SINGLE MOVIE
 
 .movie-info {
-    padding: 10px 20px;
+
+    @media (min-width: 992px) {
+        padding: 10px 20px;
+    }
 
     h2 {
         padding: 10px 0;
-    }
-
-    h2, h5 {
         color: #DBD88E;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: start;
+        }
     }
 
     .movie-genres {
@@ -185,35 +219,47 @@ a {
 }
 
 
-.single-movie-img {
-    border: 2px solid #DBD88E;
-    border-radius: 7px;
+.cast-card
+{
+    min-height: 419px;
+    background-color: rgb(14, 14, 14);
+    border-color: #DBD88E;
+    overflow: hidden;
+
+    .cast-image {
+        min-height: 233px;
+        max-height: 322px;
+        border-radius: 2px;
+        
+    }
+
+    .cast-title {
+        font-size: 14px;
+        color:#DBD88E;
+
+        .cast-title:hover {
+            color:#DBD88E;
+            text-decoration: underline;
+        }
+    }
+
+    .cast-text {
+        font-size: 14px;
+    }
 }
 
-
-.single-movie-cast h3 {
-    color: #DBD88E;
-}
-
-hr {
-    border-top: 2px solid;
-}
-
-// ACTOR 
+// ACTORDETAILS
 
 .actor {
 
     h4 {
-        color: #DBD88E;
 
         @media (max-width: 768px) {
             text-align: center;
         }
-
     }
 
     h5 {
-        color: #DBD88E;
         margin: 0;
     }
 
@@ -233,4 +279,68 @@ hr {
     }
 }
 
+.movie-cards {
+
+    min-height: 406px;
+    background-color: rgb(14, 14, 14);
+    border-color: #DBD88E;
+    overflow: hidden;
+ 
+    @media (min-width: 992px) {
+        min-height:389px;
+    }
+
+    .movie-images {
+        min-height: 233px;
+        max-height: 322px;
+    }
+
+    .movie-titles {
+    font-size: 14px;
+    color:#DBD88E;
+    font-weight: 300;
+    
+        .movie-titles:hover {
+            color:#DBD88E;
+            text-decoration: underline;
+        }
+    }
+}
+
+// GENRE PAGE
+
+.btn-primary {
+    background-color: rgb(14, 14, 14);
+    border-color: rgb(14, 14, 14);
+    color: white;
+}
+
+.btn-primary:disabled,
+.btn-primary:hover,
+.btn-primary:focus 
+{
+    background-color: rgb(27, 27, 27);
+    border-color: #DBD88E;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    background-color: rgb(14, 14, 14);
+    
+}
+
+.dropdown-menu {
+    background-color: rgb(14, 14, 14);
+    
+
+    .dropdown-item {
+        color:#DBD88E;   
+    }
+
+    .dropdown-item:hover, .dropdown-item:focus {
+        background-color: rgb(27, 27, 27);
+        color: white;
+    }
+}
 

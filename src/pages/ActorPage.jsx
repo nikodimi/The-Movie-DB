@@ -5,7 +5,6 @@ import ActorDetails from '../components/ActorDetails'
 import { useParams } from 'react-router-dom'
 import useActor from '../hooks/useActor'
 
-
 const ActorPage = () => {
     const { id } = useParams()
     const { data:actor, error, isError, isLoading, isSuccess } = useActor(id)

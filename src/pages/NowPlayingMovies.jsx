@@ -8,7 +8,6 @@ import MovieCard from '../components/MovieCard'
 import Pagination from '../components/pagination'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 
-
 const NowPlayingMovies = () => {
     const [page, setPage] = useState(1)
 	const { data: movies, error, isError, isLoading, isSuccess } = useNowPlayingMovies(page)
@@ -26,7 +25,7 @@ const NowPlayingMovies = () => {
                 <>
                     <Row>
                         {movies.results.map((movie) => (    
-                            <Col lg={3} md={4} sm={6} xs={10}key={movie.id}>
+                            <Col lg={3} md={4} sm={6} xs={12}key={movie.id}>
                                 <MovieCard movie={movie} />
                             </Col>
                         ))}
