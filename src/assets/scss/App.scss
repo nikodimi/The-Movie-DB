@@ -40,6 +40,11 @@ h5
 .page-header {
     color: #DBD88E;
     font-weight: 300;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        text-align: start;
+    }
 }
 
 .btn:disabled,
@@ -90,13 +95,43 @@ hr {
     }
 }
 
-//MOVIECARD 
+//HOMEPAGE
+
+.hero-banner {
+    margin-bottom: 100px;
+
+    .hero-image {
+        background-image: linear-gradient(to left, rgba(245, 246, 252, 0.2), rgba(184, 181, 99, 0.2)), url("/src/assets/images/projector.png");
+        height: 400px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        // @media (min-width: 768px) {
+        //     min-height:544px;
+        // }
+
+        .hero-text {
+            padding: 5px 80px;
+        }
+    
+        h1 {
+            font-size:50px;
+        }
+    }
+}
+
+//MOVIE CARD 
 
 .movie-card {
 
     background-color: rgb(14, 14, 14);
     border-color: #DBD88E;
     min-height: 619px;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
 
     @media (min-width: 768px) {
         min-height:544px;
@@ -190,11 +225,14 @@ hr {
     }
 }
 
-//MOVIEDETAILS
+//MOVIE DETAILS
 
 .single-movie-img {
     border: 2px solid #DBD88E;
     border-radius: 7px;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
 }
 
 .movie-info {
@@ -218,13 +256,15 @@ hr {
     }
 }
 
-
-.cast-card
-{
+.cast-card {
+    
     min-height: 419px;
     background-color: rgb(14, 14, 14);
     border-color: #DBD88E;
     overflow: hidden;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
 
     .cast-image {
         min-height: 233px;
@@ -248,7 +288,7 @@ hr {
     }
 }
 
-// ACTORDETAILS
+// ACTOR DETAILS
 
 .actor {
 
@@ -266,6 +306,9 @@ hr {
     .actor-img {
         border: 2px solid #DBD88E;
         border-radius: 7px;
+        -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+        box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
     }
 
     .actor-info {
@@ -275,7 +318,6 @@ hr {
         @media (max-width: 1100px) {
             padding: 0px;
         }
-
     }
 }
 
@@ -285,6 +327,9 @@ hr {
     background-color: rgb(14, 14, 14);
     border-color: #DBD88E;
     overflow: hidden;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.75);
  
     @media (min-width: 992px) {
         min-height:389px;
@@ -308,6 +353,10 @@ hr {
 }
 
 // GENRE PAGE
+
+.genre-container {
+    min-height: 100vh;
+}
 
 .btn-primary {
     background-color: rgb(14, 14, 14);
@@ -333,7 +382,6 @@ hr {
 .dropdown-menu {
     background-color: rgb(14, 14, 14);
     
-
     .dropdown-item {
         color:#DBD88E;   
     }
@@ -343,4 +391,3 @@ hr {
         color: white;
     }
 }
-

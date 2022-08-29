@@ -12,7 +12,7 @@ const PopularMoviesCarousel = () => {
     console.log(movies)
 
     return (
-        <Row className='mb-5 clown'>
+        <Row className='mb-5'>
             <Col sm={12} >
                         
                 {isLoading &&  <Loading />}
