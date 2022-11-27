@@ -5,6 +5,7 @@ import reel from '../../assets/images/film-reel2.webp'
 import Loading from '../Loading'
 import WarningAlert from '../alerts/WarningAlert'
 import usePopularMovies from '../../hooks/usePopularMovies'
+import { Link } from 'react-router-dom';
 
 const PopularMoviesCarousel = () => {
     const { data: movies, error, isError, isLoading, isSuccess } = usePopularMovies()
@@ -33,7 +34,7 @@ const PopularMoviesCarousel = () => {
                                     <Col lg={9} md={8} sm={10} xs={10} className="m-auto">
                                         <div className='movie-info h-100 d-flex flex-column justify-content-around'>
                                             <div>
-                                                <h2><a className='title-link' href={`/movie/${movie.id}`}>{movie.title}</a></h2>
+                                                <Link className='title-link' to={`/movie/${movie.id}`}><h2>{movie.title}</h2></Link>
                                             </div>
                                             <div>
                                                 <h5>Release date</h5>
